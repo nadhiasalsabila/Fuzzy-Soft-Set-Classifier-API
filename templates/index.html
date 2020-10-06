@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Fuzzy Soft Set Classifier</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+    crossorigin="anonymous">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="main.js"></script>
+<style>
+    body {
+    font: 400 15px/1.8 Lato, sans-serif;
+    background: #f0f5f5;
+    color: #3d5c5c;
+  }
+/*  .container1{
+    padding: 80px 120px;
+    background: #2d2d30;
+    color: #bdbdbd;
+  }*/
+  .container1 {
+    padding: 80px 120px;
+    background: #2d2d30;;
+    color: #bdbdbd;
+  }
+  .container1 .btn-holder {
+  justify-content: center;
+  display: flex;
+  }
+    }
+  .bg-0 {
+    background: #2d2d30;
+    color: #bdbdbd;
+  }
+  .bg-0 h3 {color: #bdbdbd;}
+  .bg-0 p {font-style: bold;}
+  .list-group-item:first-child {
+    border-top-right-radius: 0;
+    border-top-left-radius: 0;
+  }
+}
+/*  .container3 {
+    padding: 80px 80px;
+    background: #2d2d30;
+    color: #bdbdbd;
+  }*/
+  }
+  .container2 {
+    padding: 80px 120px;
+    background: #fff;
+    color: #bdbdbd;
+  }
+  .container2 .btn-holder {
+  justify-content: center;
+  display: flex;
+  }
+    }
+  .bg-1 {
+    background: #2d2d30;
+    color: #bdbdbd;
+  }
+  .bg-1 h3 {color: #bdbdbd;}
+  .bg-1 p {font-style: bold;}
+  .list-group-item:first-child {
+    border-top-right-radius: 0;
+    border-top-left-radius: 0;
+  }
+   h3, h4 {
+    margin: 10px 0 30px 0;
+    letter-spacing: 10px;      
+    font-size: 20px;
+    color: #111;
+  }
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+.modal2 {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+  background-color: #fefefe;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+}
+
+.modal-content2 {
+  background-color: #fefefe;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+}
+
+
+/* The Close Button */
+.close {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.close2 {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close2:hover,
+.close2:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+</style>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+  <a class="navbar-brand" href="/">Fuzzy Soft Set Classfier</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#Home1">About</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#pred">Predict</a>
+      </li>
+
+
+    </ul>
+    <form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form>
+  </div>
+</nav>
+<br/>
+<br/>
+<br/>
+    <div class='bg-1' id='Home1'>
+    <div class="container text-center">
+      <h3>Fuzzy Soft Set Classifer</h3>
+      <p>An algorithm that assigns a class label to an object, based on the object description. It is also said that the classifier predicts the class label. The object description comes in the form of a vector containing values of the features (attributes) deemed to be relevant for the classification task. Typically, the classifier learns to predict class labels using a training algorithm and a training data set. When a training data set is not available, a classifier can be designed from prior knowledge and expertise. Once trained, the classifier is ready for operation on unseen objects. Fuzzy Soft Set Classifier used mathematical model of vague qualitative or quantitative data, frequently generated by means of the natural language. The model is based on the generalization of the classical concepts of set and its characteristic function.</p>
+      <br>
+      <br>
+    </div>
+    <div class="bg-1">
+    </div>
+   <button style="float: right" id="myBtn">?</button>
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content rounded-0" >
+<!--     <span style="float: right" class="close">&times;</span> -->
+    <h3>Upload File to Predict</h3>
+    <p><b>Description</b></p>
+    <p>Upload File to Predict is an engine to display accuracy of a dataset.</p>
+    <p><b>Usage</b></p>
+    <ul>
+      <li>Make sure the extension of your file is <i><b>.csv</b></i>.</li>
+      <li>Make sure your data value in fuzzy.</li>
+      <li>Input your file and clik submit.</li>
+      <li>The result will shown below.</li>
+    </ul>
+  </div>
+  </div>
+    <!-- </div> -->
+<!--     <h3 style="text-align: center;">Upload file to predict</h3><br> -->
+    <div class="container1">
+    <h3 style="text-align: center;">Upload file to predict</h3><br>
+    <div class="container">
+<!--     <h3 style="text-align: center;">Upload file to predict</h3><br> -->
+		<form method="POST" action="/process" enctype="multipart/form-data">
+  			<label for="myfile">Select a file:</label>
+ 			<input type="file" id="myfile" name="myfile"><br><br>
+ 			<input type="submit"><br><br>
+		</form>
+    </div>
+    <div class="container">
+      <div class="alert alert-success" role="alert">
+        <p class="alert-heading"></p>
+        <p>Jumlah Benar : {{results}}</p>
+        <p>Akurasi	    : {{resultsA}}</p>
+      </div>
+    </div>
+    </div>
+    
+    <div class="bg-1" id='pred'>
+
+</div>
+    <div class="container2">
+    <button style="float: right" id="myBtn2">?</button>
+
+    <!-- The Modal -->
+    <div id="myModal2" class="modal2">
+
+  <!-- Modal content -->
+  <div class="modal-content2 rounded-0">
+    <span class="close2">&times;</span>
+    <h3>Input Data To Predict</h3>
+    <p><b>Description</b></p>
+    <p>Input Data to Predict is an engine to display a prediction of Iris based on its input.</p>
+    <p><b>Usage</b></p>
+    <ul>
+      <li>Make sure the value of input is in fuzzy and the real number between [0,1].</li>
+      <li>Use (.) as comma.</li>
+      <li>Clik predict.</li>
+      <li>The result will shown below.</li>
+    </ul>
+  </div>
+  </div>
+    <div class='container'>
+      <h3 style="text-align: center; ">Input Data to Predict</h3><br>
+      <form action = "/predict" method = "POST">
+         <p>Sepal Length <input type = "text" name = "sepalL" /></p>
+         <p>Sepal Width  <input type = "text" name = "sepalW" /></p>
+         <p>Petal Length <input type = "text" name = "petalL" /></p>
+         <p>Petal Width  <input type ="text" name = "petalW" /></p>
+         <p><input type = "submit" value = "Predict" /></p>
+      </form>
+    </div>
+    <div class="container">
+      <div class="alert alert-success" role="alert">
+        <p class="alert-heading"></p>
+        <p>Sepal Length : {{sl}}, Sepal Width : {{sw}}, Petal Length : {{pl}}, Petal Width : {{pw}}</p>
+        <p>Prediction : {{hasil}}</p>
+      </div>
+    </div>
+    </div>
+    </div>
+<footer class="container1 text-center">
+  <a class="up-arrow" href="#myPage" data-toggle="tooltip" title="TO TOP">
+    <span class="glyphicon glyphicon-chevron-up"></span>
+  </a><br><br>
+  <p>Nadhia Salsabila Azzahra, Telkom University</p> 
+</footer>
+    <script>
+// Get the modal
+var modal = document.getElementById("myModal");
+
+// Get the button that opens the modal
+var btn = document.getElementById("myBtn");
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks the button, open the modal 
+btn.onclick = function() {
+  modal.style.display = "block";
+}
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+  modal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
+</script>
+<script>
+// Get the modal
+var modal2 = document.getElementById("myModal2");
+
+// Get the button that opens the modal
+var btn2 = document.getElementById("myBtn2");
+
+// Get the <span> element that closes the modal
+var span2 = document.getElementsByClassName("close2")[0];
+
+// When the user clicks the button, open the modal 
+btn2.onclick = function() {
+  modal2.style.display = "block";
+}
+
+// When the user clicks on <span> (x), close the modal
+span2.onclick = function() {
+  modal2.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == modal2) {
+    modal2.style.display = "none";
+  }
+}
+</script>
+    
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+</body>
+</html>
